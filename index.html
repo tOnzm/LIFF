@@ -49,11 +49,23 @@
   <script>
     function createUniversalLink() { }
 
-    async function shareMsg() { }
+    async function shareMsg() { 
+      await liff.shareTargetPicker([
+        {
+          type: "text",
+          text: "This message was sent by ShareTargetPicker",
+        },
+      ])
+    }
 
-    function logOut() { }
+    function logOut() { 
+      liff.logout();
+      window.location.reload()
+    }
 
-    function closed() { }
+    function closed() { //ปิด liff
+      liff.closeWindow()
+    }
 
     async function scanCode() { //แสกน qrcode
       const result = await liff.scanCode();
