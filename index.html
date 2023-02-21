@@ -52,7 +52,7 @@
       document.getElementById("universalLink1").append(link1)
 
       liff.permanentLink.setExtraQueryParam("param=9")
-      const link2 = liff.permanentLink.createUrl();
+      const link2 = liff.permanentLink.createUrl()
       document.getElementById("universalLink2").append(link2)
      }
 
@@ -66,7 +66,7 @@
     }
 
     function logOut() { 
-      liff.logout();
+      liff.logout()
       window.location.reload()
     }
 
@@ -75,7 +75,7 @@
     }
 
     async function scanCode() { //แสกน qrcode
-      const result = await liff.scanCode();
+      const result = await liff.scanCode()
       document.getElementById("scanCode").append(result.value)
      }
 
@@ -87,7 +87,7 @@
     }
 
     async function getFriendship() { 
-      const friend = await liff.getFriendship();
+      const friend = await liff.getFriendship()
       document.getElementById("friendship").append(friend.friendFlag)
       if (!friend.friendFlag) {  //เช็คว่าเป็นเพื่อนกันยัง
         if (confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) { //แนะนำให้เพื่มเพื่อนอีกครั้ง
