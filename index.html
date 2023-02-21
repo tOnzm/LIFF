@@ -63,7 +63,16 @@
 
     async function sendMsg() { }
 
-    function getContext() { }
+    function getContext() { 
+      if (liff.getContext() != null) {
+        document.getElementById("type").append(liff.getContext().type)
+        document.getElementById("viewType").append(liff.getContext().viewType) //เลือก view แบบไหน
+        document.getElementById("utouId").append(liff.getContext().utouId)     //แสดงค่า id
+        document.getElementById("roomId").append(liff.getContext().roomId)  
+        document.getElementById("groupId").append(liff.getContext().groupId)   //แสดง id กลุ่ม
+      }
+      
+    }
 
     async function getUserProfile() {
       const profile = await liff.getProfile()
@@ -94,7 +103,7 @@
       await liff.init({ liffId: "1657906140-NWeROYkd" })
       getEnvironment()
       getUserProfile()
-      // getContext()
+      getContext()
       // getFriendship()
       // createUniversalLink()
     }
