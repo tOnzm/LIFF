@@ -59,7 +59,15 @@
 
     function openWindow() { }
 
-    async function getFriendship() { }
+    async function getFriendship() { 
+      const friend = await liff.getFriendship();
+      document.getElementById("friendship").append(friend.friendFlag)
+      if (!friend.friendFlag) {  //เช็คว่าเป็นเพื่อนกันยัง
+        if (confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) { //แนะนำให้เพื่มเพื่อนอีกครั้ง
+          window.location = "https://line.me/R/ti/p/@YOUR-BOT-ID"
+        }
+      }
+    }
 
     async function sendMsg() {
       if (liff.getContext().type !== "none") {   //ค่าที่ได้ต้องไม่ว่าง ถึงจะส่งกลับได้
@@ -91,7 +99,7 @@
       document.getElementById("userId").append(profile.userId)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
-      //document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
       
     }
 
@@ -115,7 +123,7 @@
       getEnvironment()
       getUserProfile()
       getContext()
-      // getFriendship()
+      getFriendship()
       // createUniversalLink()
     }
     main()
