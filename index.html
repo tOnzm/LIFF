@@ -57,7 +57,12 @@
 
     async function scanCode() { }
 
-    function openWindow() { }
+    function openWindow() { //เปิด browser
+      liff.openWindow({
+        url: "https://line.me",  //url ที่จะต้องเปิด
+        external: true, 
+      });
+    }
 
     async function getFriendship() { 
       const friend = await liff.getFriendship();
