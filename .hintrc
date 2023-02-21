@@ -3,12 +3,6 @@
     "development"
   ],
   "hints": {
-    "axe/text-alternatives": [
-      "default",
-      {
-        "image-alt": "off"
-      }
-    ],
-    "button-type": "off"
+    "axe/text-alternatives": "off"
   }
 }
