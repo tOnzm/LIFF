@@ -55,11 +55,14 @@
 
     function closed() { }
 
-    async function scanCode() { }
+    async function scanCode() { //แสกน qrcode
+      const result = await liff.scanCode();
+      document.getElementById("scanCode").append(result.value)
+     }
 
     function openWindow() { //เปิด browser
       liff.openWindow({
-        url: "https://line.me",  //url ที่จะต้องเปิด
+        url: "https://www.google.com",  //url ที่จะต้องเปิด
         external: true, 
       });
     }
