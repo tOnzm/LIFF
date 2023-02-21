@@ -20,5 +20,25 @@
     const params = new URLSearchParams(queryString)
     document.getElementById("param").append(params.get("param"))
   </script>
+
+<script>
+  async function getUserProfile() {
+    const profile = await liff.getProfile()
+    document.getElementById("pictureUrl").src = profile.pictureUrl
+    document.getElementById("userId").append(profile.userId)
+    document.getElementById("statusMessage").append(profile.statusMessage)
+    document.getElementById("displayName").append(profile.displayName)
+    document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+  }
+  async function main() {
+    await liff.init({ liffId: "1657906140-NWeROYkd" })
+    if (liff.isLoggedIn()) {
+      getUserProfile()
+    } else {
+      liff.login({ redirectUri: "YOUR-GITHUB-PAGES-DOMAIN/liff/path/" })
+    }
+  }
+  main()
+</script>
 </body>
 </html>
