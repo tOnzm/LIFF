@@ -61,7 +61,18 @@
 
     async function getFriendship() { }
 
-    async function sendMsg() { }
+    async function sendMsg() {
+      if (liff.getContext().type !== "none") {   //ค่าที่ได้ต้องไม่ว่าง ถึงจะส่งกลับได้
+        await liff.sendMessages([
+          {
+            type: "sticker",
+            stickerId: 1,
+            packageId: 1,
+          },
+        ]);
+        alert("Message sent")
+      }
+     }
 
     function getContext() { 
       if (liff.getContext() != null) {
@@ -80,7 +91,7 @@
       document.getElementById("userId").append(profile.userId)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
-      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+      //document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
       
     }
 
